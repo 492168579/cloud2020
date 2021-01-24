@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /cloud-consumer-hystrix-order
+spring:
+  application:
+    name: cloud-consumer-hystrix-order
+  datasource:
+    url: jdbc:mysql://47.95.206.149:3306/webchat?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: root
+    password: Root_20@20
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maxLifetime: 1765000 #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒以上
+      maximumPoolSize: 15 #连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
+mybatis:
+  type-aliases-package: com.yzy.could.entity
+  mapper-locations: classpath:mapper/*.xml
+eureka:
+  client:
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+ribbon:
+  ReadTimeout:  5000
+  ConnectTimeout: 5000
+logging:
+  level:
+    com.yzy.springcloud.service.OrderFeignService: debug
+feign:
+  hystrix:
+    enabled: true #如果处理自身的容错就开启。开启方式与生产端不一样。

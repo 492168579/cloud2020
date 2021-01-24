@@ -1,0 +1,1 @@
+http://localhost:8001/cloud-hystrix-payment-service/hystrix.stream

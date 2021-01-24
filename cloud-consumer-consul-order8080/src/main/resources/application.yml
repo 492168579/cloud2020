@@ -1,0 +1,26 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /cloud-consumer-order
+spring:
+  application:
+    name: cloud-consumer-order
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+        heartbeat:
+          enabled: true
+  datasource:
+    url: jdbc:mysql://47.95.206.149:3306/webchat?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    username: root
+    password: Root_20@20
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maxLifetime: 1765000 #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒以上
+      maximumPoolSize: 15 #连接池中允许的最大连接数。缺省值：10；推荐的公式：((core_count * 2) + effective_spindle_count)
+mybatis:
+  type-aliases-package: com.yzy.could.entity
+  mapper-locations: classpath:mapper/*.xml
