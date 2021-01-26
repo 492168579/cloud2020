@@ -7,9 +7,9 @@ spring:
     config:
       server:
         git:
-          uri:  https://github.com/492168579/sprincloud-config/
-          username: 492168579@qq.com                                            # git仓库的账号
-          password: qq:505173237  
+          uri:  https://github.com/492168579/cloud2020/
+          username:                                             # git仓库的账号
+          password:  
           search-paths:
             - springcloud-config
 eureka:
