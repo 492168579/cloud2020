@@ -1,0 +1,1 @@
+http://localhost:3355/configInfo
