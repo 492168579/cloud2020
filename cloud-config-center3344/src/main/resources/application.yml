@@ -12,8 +12,19 @@ spring:
           password:  
           search-paths:
             - sprincloud-config
+  rabbitmq:
+    host: 47.95.206.149
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     register-with-eureka: true
     serviceUrl:
       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
